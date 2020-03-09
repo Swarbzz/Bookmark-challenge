@@ -10,3 +10,5 @@ Domain model:
 |--------|
 |@bookmark|
 |list(bookmark)|
+
+Or a far better domain model can be found ![](https://raw.githubusercontent.com/makersacademy/course/master/bookmark_manager/images/bookmark_manager_1.png?token=AOJN3ONUCUQMNCDQMRSAULS6N5TOO)
