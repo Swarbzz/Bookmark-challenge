@@ -2,9 +2,15 @@
 
 ### How to setup the database from scratch
 1. Connet to psql
-2. create the database using the psql command CREATE DATABASE bookmark_manager;
+2. Create the database using the psql command CREATE DATABASE bookmark_manager;
 3. Connect to the database using the pqsl command \c bookmark_manager;
 4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+
+### How to setup the manager_test from scratch
+1. connect to psql
+2. Create the database using the psql command CREATE DATABASE "bookmark_manager_test";
+3. Run the query we have saved in the file 01_create_bookmarks_table.sql
+
 #### User story 1
 as a user
 so that i can select my bookmarks
