@@ -4,15 +4,27 @@ require './lib/bookmarks'
 class BookmarkManager < Sinatra::Base
 
   get '/' do
-    'Bookmark Manage'
+    redirect '/bookmarks'
   end 
 
   get '/bookmarks' do
-    p ENV
     @bookmarks = Bookmarks.all
     erb :'bookmarks/index'
   end
 
+  get '/bookmarks/new' do
+    erb :'bookmarks/new'
+  end
+
+  post '/bookmarks' do
+    Bookmarks.create(url: params[:url])
+    redirect '/bookmarks'
+  end
+
+  post '/bookmarks/new' do
+    Bookmarks.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  end
 
 run! if app_file == $0 
 end
