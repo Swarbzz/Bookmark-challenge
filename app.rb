@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/bookmarks'
+require './database_connection_setup.rb'
 
 class BookmarkManager < Sinatra::Base
 
@@ -18,6 +19,11 @@ class BookmarkManager < Sinatra::Base
     erb :'bookmarks/new'
   end
 
+  get '/bookmarks/:id/edit' do
+    @bookmark = Bookmarks.find(id: params[:id])
+    erb :'bookmarks/edit'
+  end
+
   post '/bookmarks' do
     Bookmarks.create(url: params[:url])
     redirect '/bookmarks'
@@ -30,6 +36,11 @@ class BookmarkManager < Sinatra::Base
 
   delete '/bookmarks/:id' do
     Bookmarks.delete(id: params[:id])
+    redirect '/bookmarks'
+  end
+
+  patch '/bookmarks/:id' do
+    Bookmarks.update(id: params[:id], title: params[:title], url: params[:url])
     redirect '/bookmarks'
   end
 
